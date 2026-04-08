@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next-forge@latest init cornerstone_ai --directory /Users/fgallo/Desktop/cornerstone_ai_rebuild)",
+      "Bash(npx next-forge@latest init cornerstone_ai_rebuild)",
+      "Bash(ls /Users/fgallo/Desktop/cornerstone_ai/apps/web/app/[locale]/\\\\\\(home\\\\\\)/page.tsx)",
+      "Bash(PORT=3004 npm run dev)",
+      "Bash(PORT=3004 bun --bun next dev -p 3004)",
+      "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/.env*)",
+      "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/web/.env*)",
+      "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/app/.env*)"
+    ]
+  }
+}
