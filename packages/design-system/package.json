@@ -37,7 +37,7 @@
     "next": ">=15"
   },
   "devDependencies": {
-    "next": "15.3.4",
+    "next": "15.3.8",
     "@repo/typescript-config": "*",
     "@tailwindcss/postcss": "^4.2.1",
     "@tailwindcss/typography": "^0.5.19",
