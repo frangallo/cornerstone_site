@@ -17,38 +17,41 @@ const twitterHandle = "@cornerstoneai";
 const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
 const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 
+export const baseMetadata: Metadata = {
+  applicationName,
+  metadataBase: productionUrl
+    ? new URL(`${protocol}://${productionUrl}`)
+    : undefined,
+  title: applicationName,
+  authors: [author],
+  creator: author.name,
+  publisher,
+  formatDetection: {
+    telephone: false,
+  },
+};
+
 export const createMetadata = ({
   title,
   description,
   image,
   ...properties
 }: MetadataGenerator): Metadata => {
-  const parsedTitle = `${title} | ${applicationName}`;
   const defaultMetadata: Metadata = {
-    title: parsedTitle,
+    title,
     description,
-    applicationName,
-    metadataBase: productionUrl
-      ? new URL(`${protocol}://${productionUrl}`)
-      : undefined,
-    authors: [author],
-    creator: author.name,
-    formatDetection: {
-      telephone: false,
-    },
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
-      title: parsedTitle,
+      title,
     },
     openGraph: {
-      title: parsedTitle,
+      title,
       description,
       type: "website",
       siteName: applicationName,
       locale: "en_US",
     },
-    publisher,
     twitter: {
       card: "summary_large_image",
       creator: twitterHandle,

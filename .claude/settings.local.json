@@ -8,7 +8,9 @@
       "Bash(PORT=3004 bun --bun next dev -p 3004)",
       "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/.env*)",
       "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/web/.env*)",
-      "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/app/.env*)"
+      "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/app/.env*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)"
     ]
   }
 }

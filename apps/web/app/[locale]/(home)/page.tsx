@@ -22,22 +22,9 @@ export const generateMetadata = async ({
   const dictionary = await getDictionary(locale);
 
   return createMetadata({
-    title: "AI Strategy & Implementation for Mid-Market Companies",
+    title: "Cornerstone AI - AI Strategy & Implementation",
     description: "We embed a senior AI leader inside your business every month. Strategy, implementation, and training for companies doing $10M-$200M. First working system in 2 weeks.",
-    openGraph: {
-      title: "Cornerstone AI | From Zero to AI in 90 Days",
-      description: "We embed a senior AI leader inside your business every month. Strategy, implementation, and training for mid-market companies.",
-      type: "website",
-      url: "https://cornerstoneai.co",
-      siteName: "Cornerstone AI",
-      images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Cornerstone AI | From Zero to AI in 90 Days",
-      description: "We embed a senior AI leader inside your business every month. Strategy, implementation, and training for mid-market companies.",
-      images: ["/opengraph-image.png"],
-    },
+    image: "/opengraph-image.png",
     alternates: {
       canonical: "https://cornerstoneai.co",
     },
@@ -212,9 +199,9 @@ const Home = async ({ params }: HomeProps) => {
           <div className="bg-white rounded-2xl p-5 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-2.5">
-                <div className="w-6 h-6 bg-amber rounded-[6px] flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-white">C</span>
-                </div>
+                <svg viewBox="0 0 48 48" fill="none" className="w-6 h-6">
+                  <path d="M8,8 L24,8 L24,24 L40,24 L40,40 L8,40 Z" fill="#D97706"/>
+                </svg>
                 <span className="text-[15px] font-semibold text-carbon">Cornerstone OS</span>
               </div>
               <span className="text-xs text-warm-gray">March 2026</span>
@@ -379,7 +366,7 @@ const Home = async ({ params }: HomeProps) => {
       <section className="w-full bg-cream">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12 lg:py-20 text-center">
           <h2 className="text-[48px] md:text-[56px] lg:text-[60px] font-serif leading-[1.1] text-carbon mb-3">
-            Technology that stays after every <em className="italic">conversation.</em>
+            Technology that stays <em className="italic" >with you</em>
           </h2>
           <p className="text-[17px] font-body text-warm-gray leading-[1.7] max-w-[560px] mx-auto mb-9">
             Every other AI consultant walks away and the value walks with them. We install three things that run inside your business permanently.
@@ -390,52 +377,77 @@ const Home = async ({ params }: HomeProps) => {
 
       {/* 8. Pricing */}
       <section className="w-full bg-cream">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12 lg:py-20">
-          <h2 className="text-[48px] md:text-[56px] lg:text-[60px] font-serif leading-tight text-carbon text-center mb-12">
-            Three tiers. One <em className="italic">journey.</em>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20">
+          <h2 className="text-[48px] font-serif leading-tight text-carbon text-center">
+            Four steps. One <em className="italic">journey.</em>
           </h2>
-          <div className="grid lg:grid-cols-[1fr_1.3fr_1fr] gap-5 items-start">
-            <div className="bg-white rounded-[20px] p-8 lg:mt-8">
-              <p className="text-[24px] font-semibold text-carbon mb-2">Start</p>
-              <p className="text-sm text-warm-gray italic mb-6">Strategy + training + 1 quick win</p>
-              <div className="border-t border-black/[0.06] pt-5">
-                <div className="space-y-3">
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Executive alignment cadence</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>90-day strategic roadmap</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>1 workflow implementation</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Hands-on team enablement</p>
-                </div>
+          <p className="text-[16px] font-body text-warm-gray text-center max-w-[420px] mx-auto mt-4">
+            Each step builds on the last. Start where you are.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10">
+            {/* Assess */}
+            <div className="bg-white rounded-[16px] p-6 flex flex-col">
+              <p className="text-[20px] font-semibold text-carbon mb-1">Assess</p>
+              <p className="text-[12px] text-warm-gray italic mb-4">One time diagnostic</p>
+              <div className="border-t border-black/[0.06]" />
+              <div className="flex flex-col gap-[7px] mt-3.5">
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Executive alignment</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>AI Readiness Assessment</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>90-day strategic roadmap</p>
               </div>
             </div>
-            <div className="bg-carbon rounded-[22px] p-9 shadow-[0_8px_32px_rgba(0,0,0,0.15)] relative">
-              <span className="absolute top-[-14px] left-1/2 -translate-x-1/2 bg-amber text-white text-[11px] font-semibold tracking-[0.05em] px-5 py-1.5 rounded-[14px]">RECOMMENDED</span>
-              <p className="text-[24px] font-semibold text-white mt-2.5 mb-2">Build</p>
-              <p className="text-sm text-white/50 italic mt-1 mb-7">Multi-department implementation + outcomes</p>
-              <div className="border-t border-white/[0.08] pt-5 mb-7">
-                <div className="space-y-3">
-                  <p className="text-[15px] text-white/60"><span className="text-amber mr-2">✓</span>Everything in Start</p>
-                  <p className="text-[15px] text-white/60"><span className="text-amber mr-2">✓</span>3-4 workflow implementations/month</p>
-                  <p className="text-[15px] text-white/60"><span className="text-amber mr-2">✓</span>Multi-department AI rollout</p>
-                  <p className="text-[15px] text-white/60"><span className="text-amber mr-2">✓</span>AI hiring screening</p>
-                  <p className="text-[15px] text-white/60"><span className="text-amber mr-2">✓</span>Monthly impact report via Cornerstone OS</p>
-                </div>
-              </div>
-              <Link href="/contact" className="block w-full bg-amber text-white text-lg font-semibold text-center py-5 px-7 rounded-[32px] hover:bg-amber/90 transition-colors">
-                Book a free strategy call
-              </Link>
-            </div>
-            <div className="bg-white rounded-[20px] p-8 lg:mt-8">
-              <p className="font-mono text-[24px] font-bold text-amber mb-1">Call for pricing</p>
-              <p className="text-sm text-warm-gray italic mb-6">Company-wide, everything in parallel</p>
-              <div className="border-t border-black/[0.06] pt-5">
-                <div className="space-y-3">
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Everything in Build</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Simultaneous activation</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Embedded operational presence</p>
-                  <p className="text-[15px] text-warm-gray"><span className="text-amber mr-2">✓</span>Cross-functional integration</p>
-                </div>
+
+            {/* Start */}
+            <div className="bg-white rounded-[16px] p-6 flex flex-col">
+              <p className="text-[20px] font-semibold text-carbon mb-1">Start</p>
+              <p className="text-[12px] text-warm-gray italic mb-4">First implementation</p>
+              <div className="border-t border-black/[0.06]" />
+              <div className="flex flex-col gap-[7px] mt-3.5">
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Everything in Assess</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>1-2 workflow implementations</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Hands-on team enablement</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Department-level AI rollout</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Custom tool & automation builds</p>
               </div>
             </div>
+
+            {/* Build (Recommended) */}
+            <div className="bg-white rounded-[16px] p-6 flex flex-col border-2 border-amber relative">
+              <span className="absolute top-[-10px] left-1/2 -translate-x-1/2 bg-amber text-white text-[10px] font-semibold px-3.5 py-[3px] rounded-[10px] whitespace-nowrap">RECOMMENDED</span>
+              <p className="text-[20px] font-semibold text-carbon mb-1">Build</p>
+              <p className="text-[12px] text-warm-gray italic mb-4">Scale across the business</p>
+              <div className="border-t border-black/[0.06]" />
+              <div className="flex flex-col gap-[7px] mt-3.5">
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Everything in Start</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>3-4 workflow implementations/month</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Multi-department AI rollout</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>AI monitoring</p>
+              </div>
+            </div>
+
+            {/* Accelerate */}
+            <div className="bg-white rounded-[16px] p-6 flex flex-col">
+              <p className="text-[20px] font-semibold text-carbon mb-1">Accelerate</p>
+              <p className="text-[12px] text-warm-gray italic mb-4">Company-wide, in parallel</p>
+              <div className="border-t border-black/[0.06]" />
+              <div className="flex flex-col gap-[7px] mt-3.5">
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Everything in Build</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Company-wide simultaneous rollout</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Embedded operational presence</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>Aggressive execution cadence</p>
+                <p className="text-[13px] text-warm-gray leading-[1.6]"><span className="text-amber mr-2">✓</span>AI hiring fluency</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/contact" className="inline-block bg-amber text-white text-[14px] font-medium px-7 py-3 rounded-[24px] hover:bg-amber/90 transition-colors">
+              Book a free strategy call
+            </Link>
+            <p className="text-[13px] text-warm-gray mt-3">
+              We'll walk you through the right starting point.
+            </p>
           </div>
         </div>
       </section>
@@ -478,9 +490,9 @@ const Home = async ({ params }: HomeProps) => {
             <Link href="/contact" className="inline-block bg-amber text-white text-base font-semibold py-3.5 px-8 rounded-[28px] hover:bg-amber/90 transition-colors">
               Book a free strategy call
             </Link>
-            <Link href="/assessment" className="text-[13px] text-white/40 hover:text-white/70 hover:underline font-body transition-colors">
+            {/* <Link href="/assessment" className="text-[13px] text-white/40 hover:text-white/70 hover:underline font-body transition-colors">
               Or take the free assessment →
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

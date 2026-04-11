@@ -25,24 +25,15 @@ export const Header = ({ dictionary }: HeaderProps) => {
     <>
       <header className="sticky top-0 left-0 w-full bg-carbon z-40">
         <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-8 py-4 md:py-5">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2.5">
+            <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7">
+              <path d="M8,8 L24,8 L24,24 L40,24 L40,40 L8,40 Z" fill="#D97706"/>
+            </svg>
             <span className="text-base font-sans font-semibold text-white">Cornerstone AI</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7">
-            <Link href="/services" className="text-sm text-white/65 hover:text-white transition-colors">
-              Services
-            </Link>
-            <Link href="/about" className="text-sm text-white/65 hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/blog" className="text-sm text-white/65 hover:text-white transition-colors">
-              Blog
-            </Link>
-            <Link href="/assessment" className="text-sm text-amber hover:text-white transition-colors">
-              Free Assessment
-            </Link>
             <Link href="/contact" className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
               Book a Call
             </Link>
@@ -63,7 +54,10 @@ export const Header = ({ dictionary }: HeaderProps) => {
         <div className="fixed inset-0 bg-carbon z-[9999] flex flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 py-4">
-            <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+              <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7">
+                <path d="M8,8 L24,8 L24,24 L40,24 L40,40 L8,40 Z" fill="#D97706"/>
+              </svg>
               <span className="text-base font-sans font-semibold text-white">Cornerstone AI</span>
             </Link>
             <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white p-2">
@@ -73,18 +67,6 @@ export const Header = ({ dictionary }: HeaderProps) => {
 
           {/* Nav links */}
           <nav className="flex flex-col px-6 mt-4">
-            <Link href="/services" className="text-[20px] text-white py-4 border-b border-white/[0.08] transition-colors" onClick={() => setOpen(false)}>
-              Services
-            </Link>
-            <Link href="/about" className="text-[20px] text-white py-4 border-b border-white/[0.08] transition-colors" onClick={() => setOpen(false)}>
-              About
-            </Link>
-            <Link href="/blog" className="text-[20px] text-white py-4 border-b border-white/[0.08] transition-colors" onClick={() => setOpen(false)}>
-              Blog
-            </Link>
-            <Link href="/assessment" className="text-[18px] text-amber py-4 transition-colors" onClick={() => setOpen(false)}>
-              Free Assessment
-            </Link>
             <Link href="/contact" className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors" onClick={() => setOpen(false)}>
               Book a Call
             </Link>
