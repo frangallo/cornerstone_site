@@ -7,11 +7,12 @@ import { cn } from "@repo/design-system/lib/utils";
 // import { Toolbar } from "@repo/feature-flags/components/toolbar";
 import { getDictionary } from "@repo/internationalization";
 import { baseMetadata } from "@repo/seo/metadata";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 
-export const metadata = baseMetadata;
+export const metadata: Metadata = baseMetadata;
 
 interface RootLayoutProperties {
   readonly children: ReactNode;
