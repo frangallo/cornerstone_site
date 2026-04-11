@@ -17,7 +17,9 @@
       "Bash(do sed:*)",
       "Bash(echo \"updated $f\")",
       "Bash(done)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
