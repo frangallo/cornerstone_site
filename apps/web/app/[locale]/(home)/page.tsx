@@ -66,8 +66,7 @@ const Home = async ({ params }: HomeProps) => {
             "@type": "Person",
             name: "Francesco Gallo",
           },
-          serviceType: ["AI Strategy", "AI Implementation", "AI Training", "Fractional AI Leadership"],
-        }}
+        } as any}
       />
 
       {/* 1. Hero */}

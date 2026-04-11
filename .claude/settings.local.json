@@ -10,7 +10,14 @@
       "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/web/.env*)",
       "Bash(ls -la /Users/fgallo/Desktop/cornerstone_ai/apps/app/.env*)",
       "Bash(grep:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npx next:*)",
+      "Bash(bun install:*)",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"updated $f\")",
+      "Bash(done)",
+      "Bash(git add:*)"
     ]
   }
 }

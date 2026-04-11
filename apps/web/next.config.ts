@@ -1,10 +1,8 @@
 import { withCMS } from "@repo/cms/next-config";
-import { withToolbar } from "@repo/feature-flags/lib/toolbar";
-import { config, withAnalyzer } from "@repo/next-config";
-import { withLogging, withSentry } from "@repo/observability/next-config";
+import { config } from "@repo/next-config";
 import type { NextConfig } from "next";
 
-let nextConfig: NextConfig = withToolbar(withLogging(config));
+let nextConfig: NextConfig = { ...config };
 
 nextConfig.images?.remotePatterns?.push({
   protocol: "https",
@@ -21,14 +19,6 @@ if (process.env.NODE_ENV === "production") {
   ];
 
   nextConfig.redirects = redirects;
-}
-
-if (process.env.VERCEL) {
-  nextConfig = withSentry(nextConfig);
-}
-
-if (process.env.ANALYZE === "true") {
-  nextConfig = withAnalyzer(nextConfig);
 }
 
 export default withCMS(nextConfig);

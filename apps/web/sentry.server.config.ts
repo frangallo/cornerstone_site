@@ -1,3 +1,1 @@
-import { initializeSentry } from "@repo/observability/server";
-
-initializeSentry();
+// Sentry server config — enable when Sentry is configured

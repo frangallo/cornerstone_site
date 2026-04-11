@@ -1,3 +1,1 @@
-import { initializeSentry } from "@repo/observability/edge";
-
-initializeSentry();
+// Sentry edge config — enable when Sentry is configured
