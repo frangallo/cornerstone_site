@@ -36,3 +36,18 @@
   content: attr(title);
   @apply inline-block text-muted-foreground text-right mb-6 text-sm;
 }
+
+.calendly-overlay .calendly-popup {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.calendly-popup-content {
+  background: transparent !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color-scheme: light;
+  min-width: min(900px, 90vw) !important;
+  min-height: min(680px, 90vh) !important;
+}

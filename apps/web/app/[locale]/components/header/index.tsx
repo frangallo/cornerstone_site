@@ -5,6 +5,10 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+declare const Calendly: any;
+
+const openCalendly = () => { Calendly.initPopupWidget({ url: 'https://calendly.com/cescogallo10/30min?hide_gdpr_banner=1&background_color=f5f0e8&text_color=78716c&primary_color=d97809&padding_left=30' }); };
+
 interface HeaderProps {
   dictionary: Dictionary;
 }
@@ -34,9 +38,9 @@ export const Header = ({ dictionary }: HeaderProps) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7">
-            <Link href="/contact" className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
+            <button type="button" onClick={openCalendly} className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
               Book a Call
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -67,9 +71,9 @@ export const Header = ({ dictionary }: HeaderProps) => {
 
           {/* Nav links */}
           <nav className="flex flex-col px-6 mt-4">
-            <Link href="/contact" className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors" onClick={() => setOpen(false)}>
+            <button type="button" onClick={openCalendly} className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors">
               Book a Call
-            </Link>
+            </button>
           </nav>
         </div>
       )}

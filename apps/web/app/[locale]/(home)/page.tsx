@@ -3,6 +3,7 @@ import { createMetadata } from "@repo/seo/metadata";
 import { Button } from "@repo/design-system/components/ui/button";
 import { Monitor, User, AlertCircle, XCircle, Clock, Search, Wrench, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
+import { CalendlyButton } from "@/components/calendly-button";
 import Link from "next/link";
 import { CountUp } from "./components/count-up";
 import { TechnologyTabs } from "./components/technology-tabs";
@@ -81,9 +82,9 @@ const Home = async ({ params }: HomeProps) => {
           <p className="text-base font-body text-white/50 max-w-[500px] leading-relaxed mb-8">
             We help companies like yours take the first step with AI, see real results fast, and build from there.
           </p>
-          <Link href="/contact" className="inline-block bg-amber text-white text-lg font-semibold text-center py-5 px-10 rounded-[32px] hover:bg-amber/90 transition-colors">
+          <CalendlyButton className="inline-block bg-amber text-white text-lg font-semibold text-center py-5 px-10 rounded-[32px] hover:bg-amber/90 transition-colors">
             Book a free strategy call
-          </Link>
+          </CalendlyButton>
         </div>
       </section>
 
@@ -441,9 +442,9 @@ const Home = async ({ params }: HomeProps) => {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/contact" className="inline-block bg-amber text-white text-[14px] font-medium px-7 py-3 rounded-[24px] hover:bg-amber/90 transition-colors">
+            <CalendlyButton className="inline-block bg-amber text-white text-[14px] font-medium px-7 py-3 rounded-[24px] hover:bg-amber/90 transition-colors">
               Book a free strategy call
-            </Link>
+            </CalendlyButton>
             <p className="text-[13px] text-warm-gray mt-3">
               We'll walk you through the right starting point.
             </p>
@@ -486,9 +487,9 @@ const Home = async ({ params }: HomeProps) => {
             Book a free 30-minute strategy call. No pitch, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <Link href="/contact" className="inline-block bg-amber text-white text-base font-semibold py-3.5 px-8 rounded-[28px] hover:bg-amber/90 transition-colors">
+            <CalendlyButton className="inline-block bg-amber text-white text-base font-semibold py-3.5 px-8 rounded-[28px] hover:bg-amber/90 transition-colors">
               Book a free strategy call
-            </Link>
+            </CalendlyButton>
             {/* <Link href="/assessment" className="text-[13px] text-white/40 hover:text-white/70 hover:underline font-body transition-colors">
               Or take the free assessment →
             </Link> */}

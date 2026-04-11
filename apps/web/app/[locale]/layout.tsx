@@ -31,6 +31,10 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async defer />
+      </head>
       <body>
         <AnalyticsProvider>
           <DesignSystemProvider>

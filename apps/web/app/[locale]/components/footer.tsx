@@ -1,4 +1,5 @@
 import { legal } from "@repo/cms";
+import { CalendlyButton } from "@/components/calendly-button";
 import Link from "next/link";
 
 export const Footer = async () => {
@@ -16,9 +17,9 @@ export const Footer = async () => {
         <p className="text-[13px] text-white/35">From zero to AI in 90 days.</p>
 
         <div className="flex items-center justify-center gap-0 mt-5 flex-wrap">
-          <Link href="/contact" className="text-[13px] text-white/50 hover:text-white/80 transition-colors">
+          <CalendlyButton className="text-[13px] text-white/50 hover:text-white/80 transition-colors">
             Book a Call
-          </Link>
+          </CalendlyButton>
           <span className="text-[13px] text-white/50 mx-2">·</span>
           <a href="mailto:hello@cornerstoneai.co" className="text-[13px] text-white/50 hover:text-white/80 transition-colors">
             hello@cornerstoneai.co

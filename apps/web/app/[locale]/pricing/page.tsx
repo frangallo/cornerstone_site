@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { CalendlyButton } from "@/components/calendly-button";
 
 const Pricing = () => (
   <div className="w-full bg-cream">
@@ -71,9 +71,9 @@ const Pricing = () => (
       </div>
 
       <div className="text-center mt-8">
-        <Link href="/contact" className="inline-block bg-amber text-white text-[14px] font-medium px-7 py-3 rounded-[24px] hover:bg-amber/90 transition-colors">
+        <CalendlyButton className="inline-block bg-amber text-white text-[14px] font-medium px-7 py-3 rounded-[24px] hover:bg-amber/90 transition-colors">
           Book a free strategy call
-        </Link>
+        </CalendlyButton>
         <p className="text-[13px] text-warm-gray mt-3">
           We'll walk you through the right starting point.
         </p>

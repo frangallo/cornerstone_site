@@ -19,7 +19,9 @@
       "Bash(done)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(lsof -ti:3004)",
+      "Bash(xargs kill:*)"
     ]
   }
 }
