@@ -1,16 +1,10 @@
 "use client";
 
 import type { Dictionary } from "@repo/internationalization";
+import { CalendlyButton } from "@/components/calendly-button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-declare const Calendly: any;
-
-const openCalendly = () => {
-  if (document.querySelector('.calendly-overlay')) return;
-  Calendly.initPopupWidget({ url: 'https://calendly.com/cornerstoneai/30min?hide_gdpr_banner=1&background_color=f5f0e8&text_color=78716c&primary_color=d97706' });
-};
 
 interface HeaderProps {
   dictionary: Dictionary;
@@ -41,9 +35,9 @@ export const Header = ({ dictionary }: HeaderProps) => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7">
-            <button type="button" onClick={openCalendly} className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
+            <CalendlyButton className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
               Book a Call
-            </button>
+            </CalendlyButton>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -74,9 +68,9 @@ export const Header = ({ dictionary }: HeaderProps) => {
 
           {/* Nav links */}
           <nav className="flex flex-col px-6 mt-4">
-            <button type="button" onClick={openCalendly} className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors">
+            <CalendlyButton className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors">
               Book a Call
-            </button>
+            </CalendlyButton>
           </nav>
         </div>
       )}
