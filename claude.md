@@ -131,6 +131,11 @@ Then: "There's a better way." We embed, build plan, raise AI acumen, build tools
 - Pages pass their full title to `createMetadata`. It does NOT append "| Cornerstone AI" automatically.
 - Homepage title: "Cornerstone AI - AI Strategy & Implementation"
 
+# Sitemap
+- `app/[locale]/sitemap.ts` generates `/sitemap.xml` dynamically on each request.
+- Blog and legal pages are pulled from BaseHub automatically.
+- **When adding a new top-level page**, add it to the `pages` array in `sitemap.ts`. This is the only manual step.
+
 # Scope rules
 - Only work in /apps/web unless explicitly told otherwise
 - Do not modify /apps/app, /apps/api, or /apps/email without permission
