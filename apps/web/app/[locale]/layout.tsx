@@ -33,6 +33,8 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
       suppressHydrationWarning
     >
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK62LXFHVH"></script>
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MK62LXFHVH');` }} />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onLoad="this.media='all'" />
         <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
       </head>

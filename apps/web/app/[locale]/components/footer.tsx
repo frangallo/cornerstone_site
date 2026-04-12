@@ -22,7 +22,7 @@ export const Footer = async () => {
           </CalendlyButton>
           <span className="text-[13px] text-white/50 mx-2">·</span>
           <a href="mailto:hello@cornerstoneai.co" className="text-[13px] text-white/50 hover:text-white/80 transition-colors">
-            hello@cornerstoneai.co
+            frank@cornerstoneai.co
           </a>
           <span className="text-[13px] text-white/50 mx-2">·</span>
           <a href="https://www.linkedin.com/in/francescogallo/" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white/80 transition-colors">
