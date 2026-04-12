@@ -123,7 +123,7 @@ Then: "There's a better way." We embed, build plan, raise AI acumen, build tools
 - All "Book a Call" and "Book a free strategy call" buttons open the Calendly popup, they do NOT navigate to /contact.
 - Calendly widget.css and widget.js are loaded in the layout `<head>`.
 - Buttons use a direct `Calendly.initPopupWidget()` onClick. The CalendlyButton component is in `components/calendly-button.tsx`.
-- Calendly URL: `https://calendly.com/cescogallo10/30min?hide_gdpr_banner=1&background_color=f5f0e8&text_color=78716c&primary_color=d97809&padding_left=30`
+- Calendly URL: `https://calendly.com/cornerstoneai/30min?hide_gdpr_banner=1&background_color=f5f0e8&text_color=78716c&primary_color=d97706`
 
 # Metadata
 - `packages/seo/metadata.ts` exports `baseMetadata` (used in root layout) and `createMetadata` (used per page).
