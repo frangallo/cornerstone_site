@@ -35,7 +35,7 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
       <head>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MK62LXFHVH"></script>
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MK62LXFHVH');` }} />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onLoad="this.media='all'" />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
       </head>
       <body>
