@@ -1,7 +1,8 @@
 import "./styles.css";
 import { AnalyticsProvider } from "@repo/analytics/provider";
 // import { Toolbar as CMSToolbar } from "@repo/cms/components/toolbar";
-import { DesignSystemProvider } from "@repo/design-system";
+import { TooltipProvider } from "@repo/design-system/components/ui/tooltip";
+import { ThemeProvider } from "@repo/design-system/providers/theme";
 import { fonts } from "@repo/design-system/lib/fonts";
 import { cn } from "@repo/design-system/lib/utils";
 // import { Toolbar } from "@repo/feature-flags/components/toolbar";
@@ -32,18 +33,18 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
       suppressHydrationWarning
     >
       <head>
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onLoad="this.media='all'" />
         <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
       </head>
       <body>
         <AnalyticsProvider>
-          <DesignSystemProvider>
-            <Header dictionary={dictionary} />
-            {children}
-            <Footer />
-          </DesignSystemProvider>
-          {/* <Toolbar /> */}
-          {/* <CMSToolbar /> */}
+          <ThemeProvider>
+            <TooltipProvider>
+              <Header dictionary={dictionary} />
+              {children}
+              <Footer />
+            </TooltipProvider>
+          </ThemeProvider>
         </AnalyticsProvider>
       </body>
     </html>
