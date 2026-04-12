@@ -22,7 +22,9 @@
       "Bash(git push:*)",
       "Bash(lsof -ti:3004)",
       "Bash(xargs kill:*)",
-      "Bash(kill -9 40436 40470)"
+      "Bash(kill -9 40436 40470)",
+      "Bash(find:*)",
+      "Bash(kill -9 6801 6856)"
     ]
   }
 }

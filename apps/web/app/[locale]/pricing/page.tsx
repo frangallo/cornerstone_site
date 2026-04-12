@@ -1,4 +1,11 @@
 import { CalendlyButton } from "@/components/calendly-button";
+import { createMetadata } from "@repo/seo/metadata";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = createMetadata({
+  title: "AI Implementation Pricing | Cornerstone AI",
+  description: "Four flexible engagement tiers for mid-market companies. From one-time AI assessments to company-wide rollouts. No long-term contracts.",
+});
 
 const Pricing = () => (
   <div className="w-full bg-cream">

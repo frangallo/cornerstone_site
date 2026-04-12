@@ -1,38 +1,43 @@
 import fs from "node:fs";
+import path from "node:path";
 import { blog, legal } from "@repo/cms";
 import type { MetadataRoute } from "next";
-import { env } from "@/env";
 
-const appFolders = fs.readdirSync("app", { withFileTypes: true });
-const pages = appFolders
-  .filter((file) => file.isDirectory())
-  .filter((folder) => !folder.name.startsWith("_"))
-  .filter((folder) => !folder.name.startsWith("("))
-  .map((folder) => folder.name);
-const blogs = (await blog.getPosts()).map((post) => post._slug);
-const legals = (await legal.getPosts()).map((post) => post._slug);
-const protocol = env.VERCEL_PROJECT_PRODUCTION_URL?.startsWith("https")
-  ? "https"
-  : "http";
-const url = new URL(`${protocol}://${env.VERCEL_PROJECT_PRODUCTION_URL}`);
+const baseUrl = "https://cornerstoneai.co";
 
-const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
-  {
-    url: new URL("/", url).href,
-    lastModified: new Date(),
-  },
-  ...pages.map((page) => ({
-    url: new URL(page, url).href,
-    lastModified: new Date(),
-  })),
-  ...blogs.map((blog) => ({
-    url: new URL(`blog/${blog}`, url).href,
-    lastModified: new Date(),
-  })),
-  ...legals.map((legal) => ({
-    url: new URL(`legal/${legal}`, url).href,
-    lastModified: new Date(),
-  })),
-];
+const appDir = path.join(process.cwd(), "app", "[locale]");
+const pages = fs
+  .readdirSync(appDir, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .filter((dir) => !dir.name.startsWith("_"))
+  .filter((dir) => !dir.name.startsWith("("))
+  .filter((dir) => !dir.name.startsWith("["))
+  .filter((dir) => dir.name !== "components")
+  .filter((dir) => fs.existsSync(path.join(appDir, dir.name, "page.tsx")))
+  .map((dir) => dir.name);
+
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+  const blogs = (await blog.getPosts()).map((post) => post._slug);
+  const legals = (await legal.getPosts()).map((post) => post._slug);
+
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+    },
+    ...pages.map((page) => ({
+      url: `${baseUrl}/${page}`,
+      lastModified: new Date(),
+    })),
+    ...blogs.map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date(),
+    })),
+    ...legals.map((slug) => ({
+      url: `${baseUrl}/legal/${slug}`,
+      lastModified: new Date(),
+    })),
+  ];
+};
 
 export default sitemap;
