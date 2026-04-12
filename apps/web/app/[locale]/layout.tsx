@@ -33,7 +33,7 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
     >
       <head>
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <script src="https://assets.calendly.com/assets/external/widget.js" async defer />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
       </head>
       <body>
         <AnalyticsProvider>
