@@ -24,7 +24,7 @@ export const generateMetadata = async ({
 
   return createMetadata({
     title: "Cornerstone AI - AI Strategy & Implementation",
-    description: "We embed a senior AI leader inside your business every month. Strategy, implementation, and training for companies doing $10M-$200M. First working system in 2 weeks.",
+    description: "AI feels big. The first step doesn't have to be. Cornerstone AI helps companies go from 0 to 1. Strategy, implementation, and training, all working together.",
     image: "/opengraph-image.png",
     alternates: {
       canonical: "https://cornerstoneai.co",
