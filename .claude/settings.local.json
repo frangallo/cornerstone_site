@@ -24,7 +24,11 @@
       "Bash(xargs kill:*)",
       "Bash(kill -9 40436 40470)",
       "Bash(find:*)",
-      "Bash(kill -9 6801 6856)"
+      "Bash(kill -9 6801 6856)",
+      "Bash(curl -s http://localhost:3004)",
+      "Bash(curl -s http://localhost:3004/en)",
+      "Bash(curl -s http://localhost:3004/)",
+      "Bash(curl -sL http://localhost:3004/)"
     ]
   }
 }
