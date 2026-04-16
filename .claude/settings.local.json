@@ -28,7 +28,8 @@
       "Bash(curl -s http://localhost:3004)",
       "Bash(curl -s http://localhost:3004/en)",
       "Bash(curl -s http://localhost:3004/)",
-      "Bash(curl -sL http://localhost:3004/)"
+      "Bash(curl -sL http://localhost:3004/)",
+      "Bash(curl -sL -o /Users/fgallo/Desktop/cornerstone_ai/apps/web/public/og-image.png \"http://localhost:3004/en/opengraph-image\")"
     ]
   }
 }
