@@ -80,7 +80,7 @@ const Home = async ({ params }: HomeProps) => {
             You need a blueprint to go from <em className="italic text-amber">0 to 1.</em>
           </p>
           <p className="text-base font-body text-white/50 max-w-[500px] leading-relaxed mb-8">
-            We help companies like yours take the first step with AI, see real results fast, and build from there.
+            We help non-technical teams the first step with AI, see real results fast, and build from there.
           </p>
           <CalendlyButton className="inline-block bg-amber text-white text-lg font-semibold text-center py-5 px-10 rounded-[32px] hover:bg-amber/90 transition-colors">
             Book a free strategy call
