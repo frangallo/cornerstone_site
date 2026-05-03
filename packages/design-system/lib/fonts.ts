@@ -1,27 +1,43 @@
 import { cn } from '@repo/design-system/lib/utils';
-import { Instrument_Serif, Plus_Jakarta_Sans, Source_Sans_3, JetBrains_Mono } from 'next/font/google';
+import {
+  Anton,
+  Bowlby_One,
+  Caveat,
+  Instrument_Serif,
+  Inter_Tight,
+  JetBrains_Mono,
+} from 'next/font/google';
 
-// Display/hero headings: serif font
+// Editorial serif — italic emphasis, body display
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
   weight: ['400'],
+  style: ['normal', 'italic'],
   variable: '--font-serif',
   display: 'swap',
 });
 
-// Headings and UI: clean sans-serif
-const plusJakartaSans = Plus_Jakarta_Sans({
+// UI + body sans
+const interTight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-// Body copy: readable sans-serif
-const sourceSans3 = Source_Sans_3({
+// Stamped chunky display ("BIGWORD" headlines)
+const bowlbyOne = Bowlby_One({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-body',
+  weight: ['400'],
+  variable: '--font-stamp',
+  display: 'swap',
+});
+
+// Condensed display — eyebrows, button labels, all-caps small UI
+const anton = Anton({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cond',
   display: 'swap',
 });
 
@@ -33,10 +49,20 @@ const jetBrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+// Handwritten accent
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-script',
+  display: 'swap',
+});
+
 export const fonts = cn(
   instrumentSerif.variable,
-  plusJakartaSans.variable,
-  sourceSans3.variable,
+  interTight.variable,
+  bowlbyOne.variable,
+  anton.variable,
   jetBrainsMono.variable,
+  caveat.variable,
   'touch-manipulation font-sans antialiased'
 );

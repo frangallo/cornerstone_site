@@ -2,7 +2,6 @@
 
 import type { Dictionary } from "@repo/internationalization";
 import { CalendlyButton } from "@/components/calendly-button";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -10,70 +9,68 @@ interface HeaderProps {
   dictionary: Dictionary;
 }
 
-export const Header = ({ dictionary }: HeaderProps) => {
-  const [isOpen, setOpen] = useState(false);
+const Logo = ({ size = 28 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <rect x="2" y="2" width="28" height="28" rx="6" fill="#E8823A" stroke="#0F2A3D" strokeWidth="2" />
+    <path d="M8 22 L8 14 L14 14 L14 18 L20 18 L20 22 Z" fill="#0F2A3D" />
+    <path d="M8 14 L14 14 L14 9 L8 9 Z" fill="#0F2A3D" opacity="0.5" />
+    <path d="M14 18 L20 18 L20 14 L14 14 Z" fill="#0F2A3D" opacity="0.75" />
+  </svg>
+);
+
+const NAV_LINKS = [
+  { href: "/#approach", label: "Approach" },
+  { href: "/#promise", label: "Promise" },
+  { href: "/#assessment", label: "Assessment" },
+  { href: "/#engagement", label: "Engagement" },
+];
+
+export const Header = ({ dictionary: _dictionary }: HeaderProps) => {
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
       document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
 
   return (
-    <>
-      <header className="sticky top-0 left-0 w-full bg-carbon z-40">
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-8 py-4 md:py-5">
-          <Link href="/" className="flex items-center gap-2.5">
-            <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7">
-              <path d="M8,8 L24,8 L24,24 L40,24 L40,40 L8,40 Z" fill="#D97706"/>
-            </svg>
-            <span className="text-base font-sans font-semibold text-white">Cornerstone AI</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7">
-            <CalendlyButton className="text-sm font-medium text-white bg-amber hover:bg-amber/90 px-5 rounded-[20px] transition-colors leading-[40px]">
-              Book a Call
-            </CalendlyButton>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setOpen(!isOpen)}
-            className="lg:hidden text-white/70 hover:text-white p-2"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
+    <nav className="nav">
+      <div className="wrap nav-inner">
+        <Link href="/" className="nav-logo" onClick={close}>
+          <Logo />
+          <span>Cornerstone</span>
+        </Link>
+        <div className="nav-links">
+          {NAV_LINKS.map((l) => (
+            <Link key={l.href} href={l.href}>{l.label}</Link>
+          ))}
         </div>
-      </header>
-
-      {/* Mobile Menu — full screen overlay */}
-      {isOpen && (
-        <div className="fixed inset-0 bg-carbon z-[9999] flex flex-col">
-          {/* Top bar */}
-          <div className="flex items-center justify-between px-6 py-4">
-            <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-              <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7">
-                <path d="M8,8 L24,8 L24,24 L40,24 L40,40 L8,40 Z" fill="#D97706"/>
-              </svg>
-              <span className="text-base font-sans font-semibold text-white">Cornerstone AI</span>
-            </Link>
-            <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white p-2">
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-
-          {/* Nav links */}
-          <nav className="flex flex-col px-6 mt-4">
-            <CalendlyButton className="block w-full bg-amber text-white text-base font-semibold text-center py-3.5 rounded-[24px] mt-6 hover:bg-amber/90 transition-colors">
-              Book a Call
-            </CalendlyButton>
-          </nav>
+        <CalendlyButton className="nav-cta btn-arrow">
+          Book a Call
+        </CalendlyButton>
+        <button
+          className={`nav-burger ${open ? "is-open" : ""}`}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span /><span /><span />
+        </button>
+      </div>
+      <div className={`nav-drawer ${open ? "is-open" : ""}`} onClick={close}>
+        <div className="nav-drawer-inner" onClick={(e) => e.stopPropagation()}>
+          {NAV_LINKS.map((l) => (
+            <Link key={l.href} href={l.href} onClick={close}>{l.label}</Link>
+          ))}
+          <CalendlyButton className="nav-drawer-cta btn-arrow">
+            Book a Call
+          </CalendlyButton>
         </div>
-      )}
-    </>
+      </div>
+    </nav>
   );
 };

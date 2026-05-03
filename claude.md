@@ -17,20 +17,34 @@ Anti-transformation positioning. Our buyers haven't started with AI yet. They do
 - Sentry, Clerk auth, Arcjet, Logtail, and feature flags toolbar are **stripped from /apps/web**. Do not re-add them to the marketing site config, layout, or middleware.
 - The marketing site layout uses ThemeProvider + TooltipProvider directly, NOT DesignSystemProvider (which pulls in Clerk auth).
 
-# Brand palette
-- Amber #D97706 — accent, CTAs, section labels, links
-- Cream #F5F0E8 — primary background
-- Stone #EDE8DE — alternate section background
-- Carbon #1C1917 — headings, dark CTA sections, footer
-- Dark Stone #292524 — secondary dark
-- Warm Gray #78716C — body text, descriptions
-- White #FFFFFF — service cards, blog cards floating on cream/stone
+# Brand palette (Pink's-inspired editorial rebuild — 2026-05)
+- Navy #0F2A3D — primary dark, headings, dark CTA bands, footer (replaces Carbon)
+- Navy-2 #16384F / Navy-3 #1E465F — secondary dark surfaces
+- Cream #F2EBE0 — primary page background
+- Cream-2 #ECE3D4 — alternate section background
+- Cream-3 #E0D5C0 — borders, dividers, inactive UI
+- Paper #F6EFE2 — softer cream variant for ROI/Journey sections
+- Orange #E8823A — accent, CTAs, eyebrows, italic emphasis (replaces Amber)
+- Orange-deep #C9691E — hover/pressed orange
+- Orange-soft #F4B889 — backgrounds, highlights
+- Rust #B35A3A — secondary accent
+- Mute #5C7282 — body text on cream (replaces Warm Gray)
+- Line #D6C8B2 — hairline rules
+
+Backwards-compat token aliases preserved in globals.css:
+- `--amber` → `--orange` (`#E8823A`)
+- `--carbon` → `--navy` (`#0F2A3D`)
+- `--cream` → `#F2EBE0` (slightly warmer)
+- `--warm-gray` → `--mute` (`#5C7282`)
 
 # Typography direction
-- Display/hero headings: serif font (like Instrument Serif)
-- Headings and UI: clean sans-serif (like Plus Jakarta Sans)
-- Body copy: readable sans-serif (like Source Sans 3)
-- Monospace for stats/numbers (like JetBrains Mono)
+- Display/stamped headings: **Bowlby One** (chunky stamped, used for big editorial words)
+- Condensed display + eyebrows + buttons: **Anton** (uppercase, tight tracking)
+- Editorial body / italic emphasis: **Instrument Serif**
+- UI + body sans: **Inter Tight** (replaces Plus Jakarta Sans + Source Sans 3)
+- Monospace for stats/numbers: **JetBrains Mono**
+- Handwritten accents ("— Let's talk."): **Caveat**
+All loaded via `next/font/google` in `packages/design-system/lib/fonts.ts` and exposed as `--font-stamp`, `--font-cond`, `--font-serif`, `--font-sans`, `--font-mono`, `--font-script`.
 
 # Logo mark
 The Cornerstone logo is an L-shaped block (a cornerstone). No letter "C", no text inside. Just the shape:
