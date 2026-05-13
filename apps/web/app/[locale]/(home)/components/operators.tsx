@@ -1,85 +1,124 @@
 import { CalendlyButton } from "@/components/calendly-button";
-import { Reveal } from "./reveal";
+import Link from "next/link";
+import { ArrowRight } from "./icons";
 
-const SMALL_W = 210;
-const SMALL_H = 290;
-const LARGE_W = 340;
-const LARGE_H = 460;
-const MED_W = 270;
-const MED_H = 340;
+function OrgDiagram() {
+  const roles = [
+    { label: "CEO", angle: -90 },
+    { label: "COO", angle: -30 },
+    { label: "Ops", angle: 30 },
+    { label: "Sales", angle: 90 },
+    { label: "Finance", angle: 150 },
+    { label: "People", angle: 210 },
+  ];
+  const r = 38;
 
-const leftPhotos = [
-  { img: "/team/photo-6.jpg", w: SMALL_W, h: SMALL_H, leftPx: 90, mt: 0, z: 1 },
-  { img: "/team/photo-2.jpg", w: LARGE_W, h: LARGE_H, leftPx: -200, mt: -100, z: 2 },
-  { img: "/team/photo-3.jpg", w: MED_W, h: MED_H, leftPx: 100, mt: -60, z: 3 },
-];
-
-const rightPhotos = [
-  { img: "/team/photo-1.jpg", w: SMALL_W, h: SMALL_H, rightPx: 90, mt: 0, z: 1 },
-  { img: "/team/photo-4.jpg", w: LARGE_W, h: LARGE_H, rightPx: -200, mt: -100, z: 2 },
-  { img: "/team/photo-5.jpg", w: MED_W, h: MED_H, rightPx: 100, mt: -60, z: 3 },
-];
+  return (
+    <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ overflow: "visible" }}>
+      {roles.map((role, i) => {
+        const rad = (role.angle * Math.PI) / 180;
+        const x = 50 + r * Math.cos(rad);
+        const y = 50 + r * Math.sin(rad);
+        return (
+          <line
+            key={`line-${i}`}
+            x1="50"
+            y1="50"
+            x2={x}
+            y2={y}
+            stroke="var(--rule-strong)"
+            strokeWidth="0.3"
+            strokeDasharray="0.8 0.8"
+          />
+        );
+      })}
+      <circle cx="50" cy="50" r="13" fill="var(--ink)" />
+      <g transform="translate(43.5 43.5)">
+        <path d="M0 0 H7.7 V5.3 H13 V13 H0 Z" fill="var(--orange)" />
+      </g>
+      {roles.map((role, i) => {
+        const rad = (role.angle * Math.PI) / 180;
+        const x = 50 + r * Math.cos(rad);
+        const y = 50 + r * Math.sin(rad);
+        return (
+          <g key={`node-${i}`}>
+            <circle cx={x} cy={y} r="8" fill="var(--paper)" stroke="var(--rule-strong)" strokeWidth="0.3" />
+            <text
+              x={x}
+              y={y + 0.9}
+              textAnchor="middle"
+              fill="var(--ink)"
+              fontSize="2.6"
+              fontFamily="var(--font-mono), JetBrains Mono, ui-monospace, monospace"
+              fontWeight="500"
+            >
+              {role.label}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
 
 export function Operators() {
   return (
-    <section className="section section-paper" id="operators" style={{ position: "relative", overflow: "hidden" }}>
-      <div className="bg-stars" style={{ opacity: 0.35 }} />
-      <div className="wrap" style={{ position: "relative" }}>
-        <div className="ops-eyebrow-row">
-          <div className="eyebrow eyebrow-navy">Who actually shows up</div>
-        </div>
-
-        <Reveal className="ops-stage ops-stage-flank">
-          <div className="ops-flank ops-flank-left">
-            {leftPhotos.map((p, i) => (
-              <div
-                key={i}
-                className="ops-flank-photo"
-                style={{
-                  width: `${p.w}px`,
-                  height: `${p.h}px`,
-                  marginLeft: `${p.leftPx}px`,
-                  marginTop: `${p.mt}px`,
-                  zIndex: p.z,
-                }}
-              >
-                <div className="ops-flank-img" style={{ backgroundImage: `url(${p.img})` }} />
-              </div>
-            ))}
-          </div>
-
-          <div className="ops-center ops-center-flank">
-            <h2 className="ops-title">
-              <span className="ops-title-line">One team.</span>
-              <span className="ops-title-line ops-title-orange">One system</span>
-              <span className="ops-title-line">embedded</span>
-              <span className="ops-title-line ops-title-script">within yours.</span>
+    <section
+      className="section"
+      id="embedded"
+      style={{
+        paddingTop: "calc(var(--section-py) * 0.7)",
+        paddingBottom: "calc(var(--section-py) * 0.7)",
+      }}
+    >
+      <div className="wrap">
+        <div
+          className="grid embedded-grid"
+          style={{ gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}
+        >
+          <div>
+            <span className="tag">Who actually shows up</span>
+            <h2 className="h2" style={{ marginTop: 24 }}>
+              One team.<br />
+              One system,<br />
+              <span className="acc">embedded</span> in yours.
             </h2>
-            <p className="ops-sub">
-              Plug into Cornerstone's system and see what happens when people, process and technology revolve around AI.
+            <p className="lede" style={{ marginTop: 28 }}>
+              Plug into Cornerstone's system and see what happens when your business runs on AI.
             </p>
-            <CalendlyButton className="btn btn-orange btn-arrow">Book a Call</CalendlyButton>
+            <div style={{ marginTop: 36, display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <CalendlyButton className="btn">
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                  Book a call <ArrowRight />
+                </span>
+              </CalendlyButton>
+              <Link href="#engagement" className="btn btn-ghost">
+                See engagement tiers <ArrowRight />
+              </Link>
+            </div>
           </div>
 
-          <div className="ops-flank ops-flank-right">
-            {rightPhotos.map((p, i) => (
-              <div
-                key={i}
-                className="ops-flank-photo"
-                style={{
-                  width: `${p.w}px`,
-                  height: `${p.h}px`,
-                  marginRight: `${p.rightPx}px`,
-                  marginTop: `${p.mt}px`,
-                  zIndex: p.z,
-                }}
-              >
-                <div className="ops-flank-img" style={{ backgroundImage: `url(${p.img})` }} />
-              </div>
-            ))}
+          <div
+            className="org-diagram-wrap"
+            style={{
+              position: "relative",
+              aspectRatio: "1 / 1",
+              maxWidth: 540,
+              justifySelf: "end",
+              width: "100%",
+            }}
+          >
+            <OrgDiagram />
           </div>
-        </Reveal>
+        </div>
       </div>
+
+      <style>{`
+        @media (max-width: 880px) {
+          .embedded-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .org-diagram-wrap { justify-self: center !important; max-width: 420px !important; }
+        }
+      `}</style>
     </section>
   );
 }

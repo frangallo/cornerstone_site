@@ -17,34 +17,41 @@ Anti-transformation positioning. Our buyers haven't started with AI yet. They do
 - Sentry, Clerk auth, Arcjet, Logtail, and feature flags toolbar are **stripped from /apps/web**. Do not re-add them to the marketing site config, layout, or middleware.
 - The marketing site layout uses ThemeProvider + TooltipProvider directly, NOT DesignSystemProvider (which pulls in Clerk auth).
 
-# Brand palette (Pink's-inspired editorial rebuild — 2026-05)
-- Navy #0F2A3D — primary dark, headings, dark CTA bands, footer (replaces Carbon)
-- Navy-2 #16384F / Navy-3 #1E465F — secondary dark surfaces
-- Cream #F2EBE0 — primary page background
-- Cream-2 #ECE3D4 — alternate section background
-- Cream-3 #E0D5C0 — borders, dividers, inactive UI
-- Paper #F6EFE2 — softer cream variant for ROI/Journey sections
-- Orange #E8823A — accent, CTAs, eyebrows, italic emphasis (replaces Amber)
-- Orange-deep #C9691E — hover/pressed orange
-- Orange-soft #F4B889 — backgrounds, highlights
-- Rust #B35A3A — secondary accent
-- Mute #5C7282 — body text on cream (replaces Warm Gray)
-- Line #D6C8B2 — hairline rules
+# Brand palette (Operating System redesign — 2026-05)
+- Ink #0E1B2C — primary dark, headings, dark CTA bands, footer
+- Ink-2 #1A2A3F — secondary dark surfaces (cards on dark sections)
+- Paper #F5F1E8 — primary page background (cream)
+- Paper-2 #ECE5D5 — alternate section background (assessment)
+- Orange #E8631C — accent, CTAs, eyebrows, italic emphasis word
+- Orange-deep #C44E12 — hover/pressed orange, in-text emphasis on light bg
+- Mute #5A6573 — body text muted, eyebrow text on cream
+- Rule #1a2a3f1a / Rule-strong #1a2a3f33 — hairline section dividers, card borders
 
-Backwards-compat token aliases preserved in globals.css:
-- `--amber` → `--orange` (`#E8823A`)
-- `--carbon` → `--navy` (`#0F2A3D`)
-- `--cream` → `#F2EBE0` (slightly warmer)
-- `--warm-gray` → `--mute` (`#5C7282`)
+Back-compat aliases (preserved in globals.css for legacy pages — pricing/contact/blog/legal):
+- `--navy` → `--ink`
+- `--cream` → `--paper`
+- `--amber` → `--orange`
+- `--carbon` → `--ink`
+- `--warm-gray` → `--mute`
 
-# Typography direction
-- Display/stamped headings: **Bowlby One** (chunky stamped, used for big editorial words)
-- Condensed display + eyebrows + buttons: **Anton** (uppercase, tight tracking)
-- Editorial body / italic emphasis: **Instrument Serif**
-- UI + body sans: **Inter Tight** (replaces Plus Jakarta Sans + Source Sans 3)
-- Monospace for stats/numbers: **JetBrains Mono**
-- Handwritten accents ("— Let's talk."): **Caveat**
-All loaded via `next/font/google` in `packages/design-system/lib/fonts.ts` and exposed as `--font-stamp`, `--font-cond`, `--font-serif`, `--font-sans`, `--font-mono`, `--font-script`.
+# Typography direction (Direction A: Operating System / Swiss-clean)
+- Display headings (h1/h2/h3): **Archivo** (Swiss bold sans, weights 500-800)
+- Editorial serif (italic emphasis, optional Direction B): **Fraunces** (variable serif, 400-600 + italic)
+- Secondary serif: **Source Serif 4** (italic-capable, for editorial alternate)
+- UI + body sans: **Inter Tight** (400-700)
+- Monospace for stats/labels/eyebrows: **JetBrains Mono** (400/500)
+
+All loaded via `next/font/google` in `packages/design-system/lib/fonts.ts` and exposed as:
+- `--font-display` (Archivo)
+- `--font-serif` (Fraunces)
+- `--font-serif-2` (Source Serif 4)
+- `--font-sans` (Inter Tight)
+- `--font-mono` (JetBrains Mono)
+
+Note: Bowlby One, Anton, Caveat, and Instrument Serif from the prior Pinks-inspired direction are removed.
+
+# Pricing on homepage
+**Prices are NOT shown** on the homepage tier cards. The four tiers (Assess / Start / Build / Accelerate) display tier number + name + sub-tag + description + bullet checklist only. Prices live in the underlying `TIERS` data array in `apps/web/app/[locale]/(home)/components/journey.tsx` for future reference but are not rendered.
 
 # Logo mark
 The Cornerstone logo is an L-shaped block (a cornerstone). No letter "C", no text inside. Just the shape:

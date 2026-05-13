@@ -1,57 +1,84 @@
-import { Reveal } from "./reveal";
-
-const ICON = {
-  strategize: (
-    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-      <circle cx="28" cy="20" r="9" stroke="currentColor" strokeWidth="3" />
-      <path d="M10 48 C10 36, 18 32, 28 32 C38 32, 46 36, 46 48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  ),
-  build: (
-    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-      <path d="M10 14 L28 6 L46 14 L46 42 L28 50 L10 42 Z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-      <path d="M10 14 L28 22 L46 14" stroke="currentColor" strokeWidth="3" />
-      <path d="M28 22 L28 50" stroke="currentColor" strokeWidth="3" />
-    </svg>
-  ),
-  train: (
-    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-      <path d="M14 28 L42 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <path d="M32 18 L42 28 L32 38" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M14 12 L14 44" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  ),
-};
+import { CheckIcon } from "./icons";
 
 const PROMISES = [
-  { n: ".01", title: "We Strategize", body: "We sit down with you to figure out where AI actually helps your business.", icon: ICON.strategize },
-  { n: ".02", title: "We Build", body: "We design what to build, how it fits together, and the path to get there.", icon: ICON.build },
-  { n: ".03", title: "We Train", body: "Your team learns to run it, build on it, and ship the next thing without us.", icon: ICON.train },
+  {
+    n: "01",
+    h: "We Strategize",
+    lede: "We sit down with you to where your business actually needs help.",
+    p: "We map where AI fits across your business, then prioritize the use cases that move revenue.",
+    bullets: ["Executive alignment", "Workflow audit", "90-day roadmap"],
+  },
+  {
+    n: "02",
+    h: "We Build",
+    lede: "We design what to build, how it fits together, and the path to get there.",
+    p: "We architect the stack and redesign the workflow so AI fits the work, not the other way around.",
+    bullets: ["1–4 workflows / month", "Your stack, your data", "Owned by you"],
+  },
+  {
+    n: "03",
+    h: "We Train",
+    lede: "Your team learns to run it, build on it, and ship the next thing without us.",
+    p: "We run hands-on enablement for the people doing the work and build AI fluency across your team.",
+    bullets: ["Hands-on workshops", "Internal playbooks", "Knowledge transfer"],
+  },
 ];
 
 export function Promise() {
   return (
-    <section className="section section-navy" id="promise" style={{ position: "relative" }}>
-      <div className="bg-stars bg-stars-cream" />
-      <div className="wrap" style={{ position: "relative" }}>
-        <Reveal className="promise-head">
-          <div className="eyebrow" style={{ marginBottom: 18 }}>The Cornerstone Promise</div>
-          <h2 className="bigword" style={{ color: "var(--cream)" }}>
-            Three things<br />
-            <span className="bigword-orange">we always do.</span>
+    <section className="section dark" id="promise">
+      <div className="wrap">
+        <div style={{ marginBottom: 64 }}>
+          <span className="eyebrow">The Cornerstone promise</span>
+          <h2 className="h2" style={{ marginTop: 24, maxWidth: "26ch" }}>
+            We find the work draining your team's time and revenue, then <span className="acc">build the systems that fix it.</span>
           </h2>
-        </Reveal>
-        <div className="promise-grid">
+        </div>
+
+        <div
+          className="grid promise-grid"
+          style={{
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 1,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            borderRadius: 16,
+            overflow: "hidden",
+          }}
+        >
           {PROMISES.map((p) => (
-            <div key={p.n} className="promise-card">
-              <div className="promise-num">{p.n}</div>
-              <div className="promise-badge">{p.icon}</div>
-              <div className="promise-title">{p.title}</div>
-              <p className="promise-copy">{p.body}</p>
+            <div key={p.n} style={{ background: "var(--ink)", padding: 32 }}>
+              <div
+                className="mono"
+                style={{ fontSize: 11, color: "var(--orange)", letterSpacing: "0.14em", textTransform: "uppercase" }}
+              >
+                .{p.n}
+              </div>
+              <h3 className="h3" style={{ marginTop: 16, color: "var(--paper)" }}>{p.h}</h3>
+              <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.5, color: "var(--paper)", fontWeight: 500 }}>{p.lede}</p>
+              <p style={{ marginTop: 12, fontSize: 14.5, lineHeight: 1.55, color: "rgba(245,241,232,0.7)" }}>{p.p}</p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "28px 0 0", display: "flex", flexDirection: "column", gap: 8 }}>
+                {p.bullets.map((b) => (
+                  <li
+                    key={b}
+                    className="mono"
+                    style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 12, color: "rgba(255,255,255,0.8)", letterSpacing: "0.02em" }}
+                  >
+                    <span style={{ color: "var(--orange)" }}><CheckIcon size={12} /></span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 880px) {
+          .promise-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

@@ -1,37 +1,79 @@
 import { CalendlyButton } from "@/components/calendly-button";
 import Link from "next/link";
+import { ArrowRight } from "./icons";
 
 export function Hero() {
   return (
-    <section className="hero hero-cliff">
-      <div className="bg-stars hero-stars" />
-      <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
-        <div className="hero-cliff-grid">
-          <div className="hero-cliff-left">
-            <h1 className="hero-title hero-cliff-title">
-              <span className="hero-cliff-line-1">AI feels</span>
-              <span className="hero-cliff-line-2">
-                <span className="word-orange">big</span>
-                <span className="hero-cliff-dot">.</span>
-              </span>
-              <span className="hero-cliff-line-3">
-                The first step doesn't<br />have to be.
-              </span>
-            </h1>
-          </div>
-          <div className="hero-cliff-right">
-            <p className="hero-cliff-sub">
-              Your business runs on manual work. You know AI is a thing. You just don't have time to figure out where to start. We help you get AI working where it matters.
-            </p>
-            <div className="hero-ctas">
-              <CalendlyButton className="btn btn-orange btn-lg btn-arrow">
-                Book a strategy call
-              </CalendlyButton>
-              <Link href="#assessment" className="btn btn-cream btn-lg">
-                Take Your Free AI Assessment
-              </Link>
-            </div>
-          </div>
+    <section
+      className="section"
+      style={{
+        paddingTop: "calc(var(--section-py) + 40px)",
+        paddingBottom: "calc(var(--section-py) - 20px)",
+        borderTop: 0,
+      }}
+    >
+      <div
+        className="wrap"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <h1
+          className="h1 rise d1"
+          style={{ maxWidth: "18ch" }}
+        >
+          The AI partner for businesses <span className="acc">drowning in manual work</span>
+        </h1>
+
+        <p
+          className="lede rise d2"
+          style={{
+            marginTop: 28,
+            color: "var(--mute)",
+            maxWidth: "62ch",
+          }}
+        >
+          Cornerstone takes the manual work running your business and makes it awesome.
+        </p>
+
+        <div
+          className="rise d3 hero-ctas"
+          style={{
+            marginTop: 36,
+            display: "flex",
+            gap: 12,
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          <CalendlyButton
+            className="btn btn-orange"
+            style={{
+              padding: "20px 32px",
+              fontSize: 16,
+              gap: 12,
+              minWidth: 240,
+              justifyContent: "center",
+            }}
+          >
+            Book a call <ArrowRight size={16} />
+          </CalendlyButton>
+          <Link
+            href="#assessment"
+            className="btn btn-ghost"
+            style={{
+              padding: "20px 32px",
+              fontSize: 16,
+              gap: 12,
+              minWidth: 240,
+              justifyContent: "center",
+            }}
+          >
+            Free AI assessment <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

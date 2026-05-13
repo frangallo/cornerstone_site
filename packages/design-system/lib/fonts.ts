@@ -1,23 +1,30 @@
 import { cn } from '@repo/design-system/lib/utils';
 import {
-  Anton,
-  Bowlby_One,
-  Caveat,
-  Instrument_Serif,
+  Archivo,
+  Fraunces,
   Inter_Tight,
   JetBrains_Mono,
+  Source_Serif_4,
 } from 'next/font/google';
 
-// Editorial serif — italic emphasis, body display
-const instrumentSerif = Instrument_Serif({
+// Display sans (Direction A: Operating System)
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['500', '600', '700', '800'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+// Editorial serif (Direction B alt + italic emphasis)
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
   variable: '--font-serif',
   display: 'swap',
 });
 
-// UI + body sans
+// Body sans
 const interTight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -25,44 +32,28 @@ const interTight = Inter_Tight({
   display: 'swap',
 });
 
-// Stamped chunky display ("BIGWORD" headlines)
-const bowlbyOne = Bowlby_One({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-stamp',
-  display: 'swap',
-});
-
-// Condensed display — eyebrows, button labels, all-caps small UI
-const anton = Anton({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-cond',
-  display: 'swap',
-});
-
-// Monospace for stats/numbers
+// Mono for stats / code / labels
 const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
 
-// Handwritten accent
-const caveat = Caveat({
+// Secondary serif (used in Direction B)
+const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-script',
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif-2',
   display: 'swap',
 });
 
 export const fonts = cn(
-  instrumentSerif.variable,
+  archivo.variable,
+  fraunces.variable,
   interTight.variable,
-  bowlbyOne.variable,
-  anton.variable,
   jetBrainsMono.variable,
-  caveat.variable,
+  sourceSerif.variable,
   'touch-manipulation font-sans antialiased'
 );

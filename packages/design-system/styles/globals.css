@@ -5,29 +5,39 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  /* Cornerstone AI Brand Palette — Pink's editorial rebuild (2026-05) */
-  --navy: #0F2A3D;
-  --navy-2: #16384F;
-  --navy-3: #1E465F;
-  --cream: #F2EBE0;
-  --cream-2: #ECE3D4;
-  --cream-3: #E0D5C0;
-  --paper: #F6EFE2;
-  --orange: #E8823A;
-  --orange-deep: #C9691E;
+  /* Cornerstone AI Brand Palette — Operating System redesign (2026-05) */
+  --ink: #0E1B2C;
+  --ink-2: #1A2A3F;
+  --paper: #F5F1E8;
+  --paper-2: #ECE5D5;
+  --orange: #E8631C;
+  --orange-deep: #C44E12;
   --orange-soft: #F4B889;
-  --rust: #B35A3A;
-  --ink: #0A1A26;
-  --mute: #5C7282;
-  --mute-2: #7E94A2;
-  --line: #D6C8B2;
+  --rule: rgba(26, 42, 63, 0.10);
+  --rule-strong: rgba(26, 42, 63, 0.20);
+  --mute: #5A6573;
+  --muted: #5A6573;
 
-  /* Back-compat aliases — keep older Tailwind class names mapping to new tokens */
+  /* Density */
+  --section-py: clamp(80px, 10vw, 160px);
+  --gutter: clamp(20px, 4vw, 40px);
+  --maxw: 1240px;
+
+  /* Legacy aliases — keep navy/cream class names + Tailwind utilities working */
+  --navy: var(--ink);
+  --navy-2: var(--ink-2);
+  --navy-3: #2A3A52;
+  --cream: var(--paper);
+  --cream-2: var(--paper-2);
+  --cream-3: #DDD4C0;
+  --rust: #B35A3A;
+  --mute-2: #7E94A2;
+  --line: var(--rule-strong);
   --amber: var(--orange);
-  --stone: var(--cream-2);
-  --stone-muted: var(--mute-2);
-  --carbon: var(--navy);
-  --dark-stone: var(--navy-2);
+  --stone: var(--paper-2);
+  --stone-muted: #A8A29E;
+  --carbon: var(--ink);
+  --dark-stone: var(--ink-2);
   --warm-gray: var(--mute);
   --white: #FFFFFF;
 
@@ -93,9 +103,8 @@
   --color-mute: var(--mute);
   --color-mute-2: var(--mute-2);
   --color-line: var(--line);
-  --font-stamp: var(--font-stamp);
-  --font-cond: var(--font-cond);
-  --font-script: var(--font-script);
+  --font-display: var(--font-display);
+  --font-serif-2: var(--font-serif-2);
   --color-icon-purple: #7C3AED;
   --color-icon-purple-bg: #EDE8FE;
   --color-icon-sky: #0284C7;

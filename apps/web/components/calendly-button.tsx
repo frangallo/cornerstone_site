@@ -36,7 +36,15 @@ function openCalendly() {
   (window as any).Calendly?.initPopupWidget({ url: CALENDLY_URL });
 }
 
-export const CalendlyButton = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+export const CalendlyButton = ({
+  children,
+  className,
+  style,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [pending, setPending] = useState(false);
 
@@ -80,6 +88,7 @@ export const CalendlyButton = ({ children, className }: { children: React.ReactN
       onClick={handleClick}
       onMouseEnter={preload}
       className={className}
+      style={style}
     >
       {pending ? "Loading..." : children}
     </button>
